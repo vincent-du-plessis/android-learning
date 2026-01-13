@@ -141,7 +141,9 @@ li:has(input[type="checkbox"]:checked) {
 
     checkboxes.forEach(function(checkbox) {
         checkbox.addEventListener('change', function() {
+          var storedObj = JSON.parse(localStorage.getItem("checkboxObj"));
             if (this.checked) {
+              console.log(storedObj)
                 console.log("Checkbox " + checkbox.id + " is checked");
                 storedObj[checkbox.id] = true;
                 localStorage.setItem("checkboxObj", JSON.stringify(storedObj));
@@ -152,6 +154,7 @@ li:has(input[type="checkbox"]:checked) {
             }
         });
     });
+    window.alert("This page uses local storage to save the ticked boxes. Local storage does not have a expiry date so the data will persist until you clear your browser cache or local storage specifically. you can go to dev tools application and clear it but it's only a small Ojbject worth a few kilobytes but it's a good thing to note that websites have allot of stored data remember to clear your browser cache folks!")
 </script>
 </strong>
 </body>
